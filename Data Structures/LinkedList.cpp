@@ -71,6 +71,21 @@ void deleteAt()
 	temp->next = temp1->next;
 	free(temp1);
 }
+void insertAtEnd()
+{
+	cout<<"Enter a number to Insert at End\n";
+	int x;
+	cin>>x;
+	Node* end=new Node();
+	end->data=x;
+	end->next=NULL;
+	Node* temp=head;
+	while(temp->next!=NULL)
+	{
+		temp=temp->next;
+	}
+	temp->next=end;
+}
 int main()
 {
 	head = NULL;
@@ -80,6 +95,7 @@ int main()
 		cout << "Enter 2 to Insert at position n:\n";
 		cout << "Enter 3 Print Elements of List:\n";
 		cout << "Enter 4 to delete Element at postition n:\n";
+		cout << "Enter 5 to Insert at end n:\n";
 		int value;
 		cin >> value;
 		switch (value)
@@ -96,9 +112,11 @@ int main()
 		case 4:
 			deleteAt();
 			break;
+		case 5:
+			insertAtEnd();
 
 		}
-		if (!(value > 0 && value <= 4))
+		if (!(value > 0 && value <= 5))
 		{
 			cout << "Entered Wrong Option";
 			break;
